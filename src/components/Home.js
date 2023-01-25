@@ -22,14 +22,14 @@ function Home() {
                 </Container>
                 <Container>
                     <Nav className='me-auto'>
-                        <Link to='/' className='nav-link'>
-                            Home
+                        <Link to='/signup' className='nav-link'>
+                            Sign Up
                         </Link>
-                        <Link to='/about' className='nav-link'>
-                            About Us
+                        <Link to='/signin' className='nav-link'>
+                            Sign In
                         </Link>
                         <Link to='/products' className='nav-link'>
-                            View All
+                            Feed
                         </Link>
                         <Link to='/create-product' className='nav-link'>
                             New Product

@@ -42,7 +42,7 @@ const SignUp = () => {
             <span>City  </span>
             <input placeholder="Enter City" type="text" name="city" value={city} onChange={e => setCity(e.target.value)} />
             <br /><br></br>
-            <span>Last Name  </span>
+            <span>State  </span>
             <input placeholder="Enter State" type="text" name="state" value={state} onChange={e => setState(e.target.value)} />
             <br /><br></br>
             <button>Sign Up</button>
