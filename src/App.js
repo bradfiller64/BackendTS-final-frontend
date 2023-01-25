@@ -1,6 +1,7 @@
 import React from 'react';
-import { Route, BrowserRouter, Routes, Link } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import SignUp from './components/SignUp'
+import Home from './components/Home'
 import { PostProvider } from './contexts/PostProvider';
 import { UserProvider } from './contexts/UserProvider';
 import './styles/App.css'
@@ -10,23 +11,18 @@ function App() {
   return (
     <UserProvider>
       <PostProvider>
+
         <div>
           <BrowserRouter>
-            <nav>
-              <Link to="/signup">Sign Up</Link>
-              <span> | </span>
-              <Link to="/signin">Sign In</Link>
-              <span> | </span>
-              <Link to="/posts">Feed</Link>
-              <hr></hr>
-            </nav>
             <Routes>
-              {/* <Route exact path="/" element={<SignIn />} />
-          <Route path="/signin" element={<SignIn />} /> */}
-              <Route path="/signup" element={<SignUp />} />
+              <Route path="/" element={<Home />}>
+                <Route path="/signup" element={<SignUp />} />
+              </Route>
+              <Route path="*" element={<h1>Page Not Found</h1>} />
             </Routes>
-          </BrowserRouter>
+          </BrowserRouter >
         </div>
+
       </PostProvider>
     </UserProvider>
   );
