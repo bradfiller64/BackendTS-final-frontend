@@ -12,7 +12,7 @@ const SignIn = () => {
     function handleSubmit(event) {
         event.preventDefault();
         signInUser(username, password).then(() => {
-            navigate('/');
+            navigate('/posts');
         }).catch(error => {
             console.log(error);
             window.alert('Login Failed :(');

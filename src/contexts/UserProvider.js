@@ -6,12 +6,11 @@ export const UserProvider = (props) => {
 
     const baseUrl = "http://localhost:3000/api/users/";
 
-    function createUser(username, password, firstName, lastName, city, state) {
-        let user = { username, password, firstName, lastName, city, state };
+    function createUser(newUser) {
 
-        return axios.post(baseUrl, user)
-            .then(response => {
-                return new Promise(resolve => resolve(response.data));
+        return axios.post(baseUrl, newUser)
+            .then((response) => {
+                return new Promise((resolve) => resolve(response.data));
             }
             );
     }
@@ -20,9 +19,10 @@ export const UserProvider = (props) => {
         let user = { username, password };
 
         return axios.post(`${baseUrl}/login`, user)
-            .then(response => {
-                localStorage.setItem('usertoken', response.data.token)
-                return new Promise(resolve => resolve(response.data));
+            .then((response) => {
+                localStorage.setItem('usertoken', response.data.token);
+                localStorage.setItem('currentUser', user.username)
+                return new Promise((resolve) => resolve(response.data));
             }
             );
     }

@@ -28,7 +28,7 @@ function Home() {
                         <Link to='/signin' className='nav-link'>
                             Sign In
                         </Link>
-                        <Link to='/products' className='nav-link'>
+                        <Link to='/feed' className='nav-link'>
                             Feed
                         </Link>
                         <Link to='/create-product' className='nav-link'>
