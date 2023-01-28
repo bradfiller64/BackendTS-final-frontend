@@ -38,7 +38,7 @@ const SignUp = () => {
             <h1>REGISTER</h1>
             <br></br>
             <br></br>
-            <span>Username </span>
+            <span>Username: </span>
             <input
                 placeholder="Enter Username"
                 type="text"
@@ -48,7 +48,7 @@ const SignUp = () => {
             />
             <br></br>
             <br></br>
-            <span>Password </span>
+            <span>Password: </span>
             <input
                 placeholder="Enter Password"
                 type="password"
@@ -58,7 +58,7 @@ const SignUp = () => {
             />
             <br></br>
             <br></br>
-            <span>First Name </span>
+            <span>First Name: </span>
             <input
                 placeholder="Enter First Name"
                 type="text"
@@ -68,7 +68,7 @@ const SignUp = () => {
             />
             <br></br>
             <br></br>
-            <span>Last Name </span>
+            <span>Last Name: </span>
             <input
                 placeholder="Enter Last Name"
                 type="text"
@@ -78,7 +78,7 @@ const SignUp = () => {
             />
             <br></br>
             <br></br>
-            <span>City </span>
+            <span>City: </span>
             <input
                 placeholder="Enter City"
                 type="text"
@@ -88,7 +88,7 @@ const SignUp = () => {
             />
             <br></br>
             <br></br>
-            <span>State </span>
+            <span>State: </span>
             <input
                 placeholder="Enter State"
                 type="text"
