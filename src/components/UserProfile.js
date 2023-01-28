@@ -69,13 +69,51 @@ const UserProfile = () => {
             )}
 
             <PostContext.Consumer>
-                {({ post })}
+                {({ post }) => {
+                    return (
+                        <div>
+                            <h1>{username}'s Activity</h1>
+                            <br />
 
-                return
-            </PostContext.Consumer>
+                            <div>
+                                {post.map((p) => {
+                                    if (p.username === username) {
 
-        </>
-    )
-}
+                                        return (
+                                            <div key={p.postId}>
+                                                <div>
+                                                    <p>{p.post}</p>
+                                                    <div>
+                                                        <p>Created At: {p.createdAt}</p>
+                                                        {p.username === currentUser ? (
+                                                            <>
+                                                                <button onClick={() => {
+                                                                    navigate(`/posts/${p.postId}`)
+                                                                }}>Edit</button>
 
-export default UserProfile;
+                                                                <button onClick={() => {
+                                                                    handleDelete(p.postId);
+                                                                }}>Delete</button>
+
+
+
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                </div>
+
+                                                )
+                                    }
+                                }
+                                                )
+                                }
+                                            </div>
+                }
+
+                        </PostContext.Consumer>
+
+                        </>
+                    )
+                }
+
+            export default UserProfile;
