@@ -48,6 +48,32 @@ const UserProfile = () => {
         <>
             <h1>{username}</h1>
 
+            <br />
+
+            <h3>{firstName} {lastName}</h3>
+
+            <br />
+
+            <h3>Location: {city}, {state}</h3>
+
+            <h3>Joined: {createdAt}</h3>
+
+            <br />
+
+            {username === currentUser ? (
+                <>
+                    <Link to={`/users/edit/${currentUser}`}>Edit Info</Link>
+                </>
+            ) : (
+                ''
+            )}
+
+            <PostContext.Consumer>
+                {({ post })}
+
+                return
+            </PostContext.Consumer>
+
         </>
     )
 }
