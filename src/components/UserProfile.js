@@ -46,23 +46,21 @@ const UserProfile = () => {
 
     return (
         <>
-            <h1>{username}</h1>
+            <h1>{user.username}</h1>
 
-            <br />
-
-            <h3>{user.firstName} {user.lastName}</h3>
-
-            <br />
+            <h3>Name: {user.firstName} {user.lastName}</h3>
 
             <h3>Location: {user.city}, {user.state}</h3>
 
             <h3>Joined: {user.createdAt}</h3>
 
-            <br />
-
-            {username === currentUser ? (
+            {user.username === currentUser ? (
                 <>
-                    <Link to={`/users/edit/${currentUser}`}>Edit Info</Link>
+                    {/* <Link to={`/users/edit/${currentUser}`}>Edit Info</Link> */}
+                    <button onClick={() => {
+                        navigate(`/users/edit/${currentUser}`)
+                    }}>Edit Info
+                    </button>
                 </>
             ) : (
                 ''
