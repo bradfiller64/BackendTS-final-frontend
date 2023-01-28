@@ -92,7 +92,9 @@ const EditProfile = () => {
                 value={user.state}
                 onChange={handleChange}
             />
-            <button>Sign Up</button>
+            <br />
+            <br />
+            <button>Update</button>
         </form>
     )
 }

@@ -34,14 +34,14 @@ export const UserProvider = (props) => {
     }
 
     function signOutUser() {
-        localStorage.setItem('postToken', '');
+        localStorage.setItem('userToken', '');
         localStorage.setItem('currentUser', '');
         window.location.reload(true);
     }
 
     function editUser(username) {
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('postToken')}`
+            Authorization: `Bearer ${localStorage.getItem('userToken')}`
         };
 
         return axios.put(baseUrl + `${username}`, username, { headers: myHeaders })
@@ -53,7 +53,7 @@ export const UserProvider = (props) => {
 
     function deleteUser(username) {
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('postToken')}`
+            Authorization: `Bearer ${localStorage.getItem('userToken')}`
         };
 
         return axios.delete(baseUrl + username, { headers: myHeaders }).then(response => {

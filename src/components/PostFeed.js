@@ -24,11 +24,12 @@ function PostFeed() {
     function handleDeletePost(id) {
         deletePost(id)
             .then(() => {
+                window.alert('Posted Deleted')
                 navigate('/posts');
             })
             .catch((error) => {
                 console.log(error);
-                window.AudioListener('Failed to Post :(')
+                window.alert('Failed to Delete Post :(')
                 navigate('/signin');
             })
     }
@@ -45,27 +46,52 @@ function PostFeed() {
                             {user ? (
                                 <NewPost />
                             ) : (
-                                <h3>
-                                    Please <Link to="/signin"> Login</Link>
-                                </h3>
+                                // <h3>
+                                //     Please <Link to="/signin"> Login</Link>
+                                // </h3>
+                                <button onClick={() => {
+                                    navigate(`/signin`)
+                                }}>Login to Post
+                                </button>
                             )
                             }
 
 
-                            {/* {post.map(p) => {
-                                    return (
-                            <div key={p.postId} >
-                                <p>Username: </p>>
-                            </div>
-                            );
-                                }
-                            )} */}
-                        </div>
+                            {post.map((p) => {
+                                return (
+                                    <div key={p.postId} className="post">
+                                        <Link to={`/users/${p.username}`}>{p.username}</Link>
+
+                                        <div className="message">
+                                            <p>{p.message}</p>
+                                        </div>
+
+                                        <div className="date">
+                                            <p>Posted: {p.createdAt}</p>
+                                        </div>
+
+                                        {p.username === user ? (
+                                            <div>
+                                                <button onClick={() => {
+                                                    navigate(`/users/edit/${username}`)
+                                                }}>Edit
+                                                </button>
+
+                                                <button onClick={() => {
+                                                    handleDeletePost(`/posts/${p.postId}`)
+                                                }}>Edit
+                                                </button>
+                                        )}
+                                            </div>
+                                        );
+                            }
+                            )}
+                                    </div>
                     </>
-                );
+                        );
             }}
-        </PostContext.Consumer >
-    );
-}
+                    </PostContext.Consumer >
+                );
+            }
 
 export default PostFeed;

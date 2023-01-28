@@ -35,8 +35,7 @@ const SignUp = () => {
     return (
 
         <form onSubmit={handleSubmit}>
-            <h1>REGISTER</h1>
-            <br></br>
+            <h1>Register</h1>
             <br></br>
             <span>Username: </span>
             <input
@@ -97,6 +96,8 @@ const SignUp = () => {
                 value={newUser.state}
                 onChange={handleChange}
             />
+            <br />
+            <br />
             <button>Sign Up</button>
         </form>
     )
