@@ -9,14 +9,14 @@ function PostFeed() {
 
     let navigate = useNavigate();
 
-    function userSignedIn() {
+    function isLoggedIn() {
         let user = localStorage.getItem('currentUser')
         setUser(user);
     }
 
     useEffect(() => {
         async function fetchData() {
-            await userSignedIn();
+            await isLoggedIn();
         }
         fetchData();
     }, []);
@@ -50,13 +50,14 @@ function PostFeed() {
                                 </h3>
                             )
                             }
-                            {/* <NewPost /> */}
+
 
                             {/* {post.map(p) => {
                                     return (
-                                        <div >
-                                        </div>
-                                    );
+                            <div key={p.postId} >
+                                <p>Username: </p>>
+                            </div>
+                            );
                                 }
                             )} */}
                         </div>

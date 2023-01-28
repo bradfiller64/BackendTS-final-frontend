@@ -27,7 +27,7 @@ export const PostProvider = (props) => {
 
     function addPost(post) {
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('postToken')}`
+            Authorization: `Bearer ${localStorage.getItem('userToken')}`
         };
 
         return axios.post(baseUrl, post, { headers: myHeaders })

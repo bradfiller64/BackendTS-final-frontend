@@ -39,12 +39,37 @@ export const UserProvider = (props) => {
         window.location.reload(true);
     }
 
+    function editUser(username) {
+        let myHeaders = {
+            Authorization: `Bearer ${localStorage.getItem('postToken')}`
+        };
+
+        return axios.put(baseUrl + `${username}`, username, { headers: myHeaders })
+            .then(response => {
+                return new Promise(resolve => resolve(response.data));
+            })
+
+    }
+
+    function deleteUser(username) {
+        let myHeaders = {
+            Authorization: `Bearer ${localStorage.getItem('postToken')}`
+        };
+
+        return axios.delete(baseUrl + username, { headers: myHeaders }).then(response => {
+            return new Promise(resolve => resolve(response.data));
+        });
+
+    }
+
     return (
         <UserContext.Provider value={{
             createUser,
             getUser,
             signInUser,
-            signOutUser
+            signOutUser,
+            editUser,
+            deleteUser
         }}>
             {props.children}
         </UserContext.Provider>

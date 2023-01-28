@@ -7,7 +7,7 @@ const UserProfile = () => {
     let { username } = useParams();
     const [currentUser, setCurrentUser] = useState();
 
-    function userSignedIn() {
+    function isLoggedIn() {
         let user = localStorage.getItem('currentUser')
         setCurrentUser(user);
     }
@@ -29,7 +29,7 @@ const UserProfile = () => {
         async function fetch() {
             await getUser(username).then((username) => setUser(username));
         }
-        userSignedIn();
+        isLoggedIn();
         fetch();
     }, [getUser, username]);
 
@@ -40,7 +40,16 @@ const UserProfile = () => {
             })
             .catch((error) => {
                 console.log(error);
-                navigate('/signin')
+                navigate('/signin');
             })
     }
+
+    return (
+        <>
+            <h1>{username}</h1>
+
+        </>
+    )
 }
+
+export default UserProfile;

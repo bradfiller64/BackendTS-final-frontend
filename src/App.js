@@ -4,7 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import SignUp from './components/SignUp'
 import SignIn from './components/SignIn'
 import PostFeed from './components/PostFeed'
-import NewPost from './components/NewPost'
+import UserProfile from './components/UserProfile'
+import EditProfile from './components/EditProfile'
 import Home from './components/Home'
 import { PostProvider } from './contexts/PostProvider';
 import { UserProvider } from './contexts/UserProvider';
@@ -20,10 +21,11 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />}>
-                {/* <Route index element={<NewPost />} /> */}
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
-                {/* <Route path="/newpost" element={<NewPost />} /> */}
+                <Route path="/users/:username" element={<UserProfile />} />
+                <Route path="/users/edit/:username" element={<UserProfile />} />
+                <Route path="/posts/:id" element={<EditProfile />} />
                 <Route path="/posts" element={<PostFeed />} />
               </Route>
               <Route path="*" element={<h1>Page Not Found</h1>} />
@@ -31,12 +33,6 @@ function App() {
           </BrowserRouter >
         </div>
         <br></br>
-        <Navbar
-          expand="lg"
-          variant="dark"
-          bg="dark"
-          style={{ marginTop: '20rem' }}
-        ></Navbar>
 
       </PostProvider>
     </UserProvider>
