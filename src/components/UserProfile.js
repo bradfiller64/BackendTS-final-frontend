@@ -50,13 +50,13 @@ const UserProfile = () => {
 
             <br />
 
-            <h3>{firstName} {lastName}</h3>
+            <h3>{user.firstName} {user.lastName}</h3>
 
             <br />
 
-            <h3>Location: {city}, {state}</h3>
+            <h3>Location: {user.city}, {user.state}</h3>
 
-            <h3>Joined: {createdAt}</h3>
+            <h3>Joined: {user.createdAt}</h3>
 
             <br />
 
@@ -89,31 +89,34 @@ const UserProfile = () => {
                                                             <>
                                                                 <button onClick={() => {
                                                                     navigate(`/posts/${p.postId}`)
-                                                                }}>Edit</button>
+                                                                }}>Edit
+                                                                </button>
 
                                                                 <button onClick={() => {
                                                                     handleDelete(p.postId);
-                                                                }}>Delete</button>
-
-
-
+                                                                }}>Delete
+                                                                </button>
                                                             </>
+                                                        ) : (
+                                                            ''
                                                         )}
                                                     </div>
                                                 </div>
-
-                                                )
-                                    }
-                                }
-                                                )
-                                }
                                             </div>
-                }
+                                        );
+                                    } else {
+                                        return null;
+                                    }
+                                })}
+                            </div>
+                        </div>
+                    );
+                }}
 
-                        </PostContext.Consumer>
+            </PostContext.Consumer>
 
-                        </>
-                    )
-                }
+        </>
+    );
+};
 
-            export default UserProfile;
+export default UserProfile;
