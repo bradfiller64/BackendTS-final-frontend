@@ -1,3 +1,4 @@
+import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
@@ -30,9 +31,6 @@ function Home() {
                         </Link>
                         <Link to='/posts' className='nav-link'>
                             Feed
-                        </Link>
-                        <Link to='/create-product' className='nav-link'>
-                            New Product
                         </Link>
                     </Nav>
                 </Container>

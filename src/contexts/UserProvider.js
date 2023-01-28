@@ -15,6 +15,12 @@ export const UserProvider = (props) => {
             );
     }
 
+    function getUser(username) {
+        return axios.get(baseUrl + username).then((response) => {
+            return new Promise((resolve) => resolve(response.data));
+        });
+    }
+
     function signInUser(username, password) {
         let user = { username, password };
 
@@ -27,10 +33,18 @@ export const UserProvider = (props) => {
             );
     }
 
+    function signOutUser() {
+        localStorage.setItem('postToken', '');
+        localStorage.setItem('currentUser', '');
+        window.location.reload(true);
+    }
+
     return (
         <UserContext.Provider value={{
             createUser,
-            signInUser
+            getUser,
+            signInUser,
+            signOutUser
         }}>
             {props.children}
         </UserContext.Provider>

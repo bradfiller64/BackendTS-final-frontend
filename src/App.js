@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
+import Navbar from 'react-bootstrap/Navbar';
 import SignUp from './components/SignUp'
 import SignIn from './components/SignIn'
 import PostFeed from './components/PostFeed'
@@ -29,6 +30,13 @@ function App() {
             </Routes>
           </BrowserRouter >
         </div>
+        <br></br>
+        <Navbar
+          expand="lg"
+          variant="dark"
+          bg="dark"
+          style={{ marginTop: '20rem' }}
+        ></Navbar>
 
       </PostProvider>
     </UserProvider>
