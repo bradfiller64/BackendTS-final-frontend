@@ -6,7 +6,7 @@ import PostContext from "./PostContext";
 export const PostProvider = (props) => {
 
     const [post, setPost] = useState([]);
-    const baseUrl = "http://localhost:3000/api/post/";
+    const baseUrl = "http://localhost:3000/api/posts/";
 
     useEffect(() => {
         async function fetchData() {
