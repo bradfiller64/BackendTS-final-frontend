@@ -28,14 +28,14 @@
     color: white;
 }
 
-.delete-btn {
+.del-btn {
     background-color: red;
     font-size: 15px;
     border-radius: 10px;
     padding-top: 4px;
     padding-bottom: 4px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
     color: white;
 }
 
@@ -46,5 +46,9 @@
 .post {
     border-style: solid;
     border: 2px;
-    border-color: rgb(98, 255, 98);
+    border-color: blueviolet
+}
+
+.date {
+    text-align: right;
 }

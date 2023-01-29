@@ -59,7 +59,7 @@ const UserProfile = () => {
             {user.username === currentUser ? (
                 <>
                     {/* <Link to={`/users/edit/${currentUser}`}>Edit Info</Link> */}
-                    <button onClick={() => {
+                    <button className="submit-btn" onClick={() => {
                         navigate(`/users/edit/${currentUser}`)
                     }}>Edit Info
                     </button>
@@ -80,20 +80,20 @@ const UserProfile = () => {
                                     if (p.username === username) {
 
                                         return (
-                                            <div key={p.postId}>
-                                                <div>
-                                                    <p>{p.post}</p>
-                                                    <div>
+                                            <div key={p.postId} className="post">
+                                                <div className="message">
+                                                    <p>{p.message}</p>
+                                                    <div className="date">
                                                         <p>Created At: {p.createdAt}</p>
 
                                                         {p.username === currentUser ? (
                                                             <>
-                                                                <button classname="edit-btn" onClick={() => {
+                                                                <button className="edit-btn" onClick={() => {
                                                                     navigate(`/posts/${p.postId}`)
                                                                 }}>Edit
                                                                 </button>
 
-                                                                <button classname="del-btn" onClick={() => {
+                                                                <button className="del-btn" onClick={() => {
                                                                     handleDelete(p.postId);
                                                                 }}>Delete
                                                                 </button>

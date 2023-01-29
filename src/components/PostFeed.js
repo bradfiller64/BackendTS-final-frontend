@@ -70,12 +70,12 @@ function PostFeed() {
 
                                                 {p.username === user ? (
                                                     <div>
-                                                        <button classname="edit-btn" onClick={() => {
-                                                            navigate(`/users/edit/${user.username}`)
+                                                        <button className="edit-btn" onClick={() => {
+                                                            navigate(`/posts/${p.postId}`)
                                                         }}>Edit
                                                         </button>
 
-                                                        <button classname="del-btn" onClick={() => {
+                                                        <button className="del-btn" onClick={() => {
                                                             handleDeletePost(`/posts/${p.postId}`)
                                                         }}>Delete
                                                         </button>
