@@ -48,11 +48,11 @@ const UserProfile = () => {
         <>
             <h1>{user.username}</h1>
 
-            <h3>Name: {user.firstName} {user.lastName}</h3>
+            <h3>Name: <b style={{ color: 'white' }}>{user.firstName} {user.lastName}</b></h3>
 
-            <h3>Location: {user.city}, {user.state}</h3>
+            <h3>Location: <b style={{ color: 'white' }}>{user.city}, {user.state}</b></h3>
 
-            <h3>Joined: {user.createdAt}</h3>
+            <h3>Joined: <b style={{ color: 'white' }}>{user.createdAt}</b></h3>
 
             <br />
 
@@ -67,11 +67,12 @@ const UserProfile = () => {
             ) : (
                 ''
             )}
-
             <PostContext.Consumer>
+
                 {({ post }) => {
                     return (
                         <div>
+                            <br />
                             <h1>{username}'s Activity</h1>
                             <br />
 
@@ -88,7 +89,7 @@ const UserProfile = () => {
 
                                                         {p.username === currentUser ? (
                                                             <>
-                                                                <button className="edit-btn" onClick={() => {
+                                                                <button className="submit-btn" onClick={() => {
                                                                     navigate(`/posts/${p.postId}`)
                                                                 }}>Edit
                                                                 </button>

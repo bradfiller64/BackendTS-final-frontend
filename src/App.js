@@ -20,7 +20,8 @@ function App() {
         <div>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Home />}>
+              <Route exact path="/" element={<Home />}>
+                <Route index element={<PostFeed />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/users/:username" element={<UserProfile />} />

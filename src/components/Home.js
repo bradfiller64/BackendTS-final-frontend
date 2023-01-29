@@ -32,7 +32,7 @@ function Home() {
 
                 <div className='nav-links'>
                     {user ? (<Link to={`/users/${user}`}>{user}</Link>) :
-                        (<Link to='/signup' className='nav-link'>Sign Up </Link>)}
+                        (<Link to='/signup' className='nav-link'>Sign Up</Link>)}
 
                     <span> | </span>
 
@@ -45,27 +45,6 @@ function Home() {
                     <Link to='/posts' className='nav-link'>
                         Feed
                     </Link>
-
-                    {/* {user ? (
-                        <Link onClick={() => {
-                            signOutUser();
-                        }}
-                        >
-                            Sign Out
-                        </Link>
-                    ) : (
-                        <>
-                            <Link to='/signup' className='nav-link'>
-                                Sign Up
-                            </Link> <span> | </span>
-                            <Link to='/signin' className='nav-link'>
-                                Sign In
-                            </Link><span> | </span>
-                            <Link to='/posts' className='nav-link'>
-                                Feed
-                            </Link>
-                        </>
-                    )} */}
                 </div>
             </nav>
             <div className='outlet'>

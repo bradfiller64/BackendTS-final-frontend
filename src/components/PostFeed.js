@@ -47,9 +47,11 @@ function PostFeed() {
                                 {user ? (
                                     <NewPost />
                                 ) : (
-                                    <h3>
-                                        <Link to="/signin">Login</Link> to post
-                                    </h3>
+                                    <button className="submit-btn" onClick={() => {
+                                        navigate(`/signin`)
+
+                                    }}>Login to Post
+                                    </button>
                                 )
 
                                 }
@@ -58,33 +60,34 @@ function PostFeed() {
                                     {post.map((p) => {
                                         return (
                                             <div key={p.postId} className="post">
-                                                <Link className="userfeed" to={`/users/${p.username}`}>{p.username}</Link>
+                                                <Link style={{ color: 'Purple' }} to={`/users/${p.username}`}>{p.username}</Link>
 
                                                 <div className="message">
                                                     <p>{p.message}</p>
                                                 </div>
 
                                                 <div className="date">
+
                                                     <p>Posted: {p.createdAt}</p>
+
+                                                    {p.username === user ? (
+                                                        <div>
+                                                            <button className="submit-btn" onClick={() => {
+                                                                navigate(`/posts/${p.postId}`)
+
+                                                            }}>Edit
+                                                            </button>
+
+                                                            <button className="del-btn" onClick={() => {
+                                                                handleDeletePost(p.postId)
+                                                            }}>Delete
+                                                            </button>
+
+                                                        </div>
+                                                    ) : (
+                                                        ''
+                                                    )}
                                                 </div>
-
-                                                {p.username === user ? (
-                                                    <div>
-                                                        <button className="edit-btn" onClick={() => {
-                                                            navigate(`/posts/${p.postId}`)
-
-                                                        }}>Edit
-                                                        </button>
-
-                                                        <button className="del-btn" onClick={() => {
-                                                            handleDeletePost(p.postId)
-                                                        }}>Delete
-                                                        </button>
-
-                                                    </div>
-                                                ) : (
-                                                    ''
-                                                )}
                                             </div>
                                         )
                                     })}
