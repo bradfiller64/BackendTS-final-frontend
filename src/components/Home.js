@@ -1,44 +1,61 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
-import Stack from 'react-bootstrap/Stack';
+import React, { useState, useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import Logo from '../images/logo.png';
-
+import UserContext from '../contexts/UserContext';
 
 function Home() {
+
+    const [user, setUser] = useState();
+
+    let { signOutUser } = useContext(UserContext);
+
+    // function isLoggedIn() {
+    //     let user = localStorage.getItem('currentUser')
+    //     setUser(user);
+    // }
+
     return (
         <>
-            <Navbar bg='dark' variant='dark'>
-                <Container >
-                    <Navbar.Brand href="/">
-                        <img id="logo"
-                            alt='Lofi-Logo'
-                            style={{ width: 50, height: 50, borderRadius: '25px' }}
-                            src={Logo}
-                            className="d-inline-block align-top"
-                        />{' '}
-                        <span style={{ color: 'rgb(98, 255, 98)' }}>MyFace</span>
-                    </Navbar.Brand>
-                </Container>
-                <Container>
-                    <Nav className='me-auto'>
-                        <Link to='/signup' className='nav-link'>
-                            Sign Up
+            <nav className='navbar-main'>
+
+                <div>
+                    <h1>MyFace</h1>
+                </div>
+
+
+                <div className='nav-links'>
+                    <Link to={`/users/${user}`}>{user}</Link>
+                    {user ? <span> | </span> : ''}
+
+                    <Link to='/posts'>Feed</Link>
+                    <span> | </span>
+                    <Link to='/signin' className='nav-link'>
+                        Sign In
+                    </Link><span> | </span>
+                    {user ? (
+                        <Link onClick={() => {
+                            signOutUser();
+                        }}
+                        >
+                            Sign Out
                         </Link>
-                        <Link to='/signin' className='nav-link'>
-                            Sign In
-                        </Link>
-                        <Link to='/posts' className='nav-link'>
-                            Feed
-                        </Link>
-                    </Nav>
-                </Container>
-            </Navbar>
-            <Stack gap={3} className='col-md-10 mx-auto mt-3'>
+                    ) : (
+                        <>
+                            <Link to='/signup' className='nav-link'>
+                                Sign Up
+                            </Link> <span> | </span>
+                            <Link to='/signin' className='nav-link'>
+                                Sign In
+                            </Link><span> | </span>
+                            <Link to='/posts' className='nav-link'>
+                                Feed
+                            </Link>
+                        </>
+                    )}
+                </div>
+            </nav>
+            <div className='outlet'>
                 <Outlet />
-            </Stack>
+            </div>
         </>
     );
 }

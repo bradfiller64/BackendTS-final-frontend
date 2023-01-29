@@ -1,43 +1,46 @@
-import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import PostContext from '../contexts/PostContext';
 
 const EditPost = () => {
+    let { id } = useParams()
+
     let [post, setPost] = useState('');
 
-    let { getPost, editPost } = useContext(PostContext);
+    let { getPost, editPost, deletePost } = useContext(PostContext);
     let navigate = useNavigate();
 
-    function isLoggedIn() {
-        let user = localStorage.getItem('currentUser')
-        setCurrentUser(user);
-    }
-
     useEffect(() => {
+        if (id === undefined) return
+
         async function fetch() {
-            await getPost(post).then((user) => setUser(user));
+            await getPost(id).then((post) => setPost(post));
         }
-        isLoggedIn();
         fetch();
-    }, [getPost, currentUser]);
+    }, [id, getPost]);
 
 
     function handleChange(event) {
-        setNewPost((prevValue) => {
+        setPost((prevValue) => {
             return { ...prevValue, [event.target.name]: event.target.value }
         });
     }
 
     function handleSubmit(event) {
-
-        addPost(newPost).then(() => {
-            navigate('/');
+        event.preventDefault()
+        editPost(post).then(() => {
+            navigate('/posts');
             alert('Post updated!');
         }).catch(error => {
             console.log(error);
-            navigate('/');
+            navigate('/signin');
             alert('Failed to update post! :(');
         });
+    }
+
+    const handleDelete = () => {
+        deletePost(id)
+        navigate('/posts')
     }
 
     return (
@@ -52,6 +55,7 @@ const EditPost = () => {
 
             <br></br><br></br>
             <button className="submit-btn">Update</button>
+            <button className="del-btn" onClick={handleDelete}>Delete</button>
         </form>
     )
 }

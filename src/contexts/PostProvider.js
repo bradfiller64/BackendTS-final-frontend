@@ -21,44 +21,44 @@ export const PostProvider = (props) => {
 
     function getPost(id) {
         return axios.get(baseUrl + id).then(response => {
-            return new Promise(resolve => resolve(response.data));
+            return new Promise((resolve) => resolve(response.data));
         })
     }
 
     function addPost(post) {
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('userToken')}`
+            Authorization: `Bearer ${localStorage.getItem('usertoken')}`
         };
 
         return axios.post(baseUrl, post, { headers: myHeaders })
             .then(response => {
                 getAllPost();
-                return new Promise(resolve => resolve(response.data));
+                return new Promise((resolve) => resolve(response.data));
             }
             );
     }
 
     function editPost(post) {
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('userToken')}`
+            Authorization: `Bearer ${localStorage.getItem('usertoken')}`
         };
 
-        return axios.put(baseUrl + post._id, post, { headers: myHeaders })
+        return axios.put(baseUrl + post.postId, post, { headers: myHeaders })
             .then(response => {
                 getAllPost();
-                return new Promise(resolve => resolve(response.data));
+                return new Promise((resolve) => resolve(response.data));
             })
 
     }
 
     function deletePost(id) {
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('userToken')}`
+            Authorization: `Bearer ${localStorage.getItem('usertoken')}`
         };
 
         return axios.delete(baseUrl + id, { headers: myHeaders }).then(response => {
             getAllPost();
-            return new Promise(resolve => resolve(response.data));
+            return new Promise((resolve) => resolve(response.data));
         });
 
     }

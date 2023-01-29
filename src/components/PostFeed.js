@@ -72,11 +72,12 @@ function PostFeed() {
                                                     <div>
                                                         <button className="edit-btn" onClick={() => {
                                                             navigate(`/posts/${p.postId}`)
+
                                                         }}>Edit
                                                         </button>
 
                                                         <button className="del-btn" onClick={() => {
-                                                            handleDeletePost(`/posts/${p.postId}`)
+                                                            handleDeletePost(p.postId)
                                                         }}>Delete
                                                         </button>
 

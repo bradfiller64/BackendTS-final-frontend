@@ -9,19 +9,19 @@ const NewPost = () => {
     let navigate = useNavigate();
 
     function handleChange(event) {
-        setNewPost((prevValue) => {
-            return { ...prevValue, [event.target.message]: event.target.value }
+        setNewPost((preValue) => {
+            return { ...preValue, [event.target.name]: event.target.value }
         });
     }
 
-    function handleSubmit(event) {
+    function handleSubmit() {
 
         addPost(newPost).then(() => {
-            navigate('/');
+            navigate('/posts');
             alert('Post created!');
         }).catch(error => {
             console.log(error);
-            navigate('/');
+            navigate('/signin');
             alert('Failed to post :(');
         });
     }

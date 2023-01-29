@@ -1,12 +1,11 @@
 import React from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
-import Navbar from 'react-bootstrap/Navbar';
 import SignUp from './components/SignUp'
 import SignIn from './components/SignIn'
 import PostFeed from './components/PostFeed'
 import UserProfile from './components/UserProfile'
 import EditProfile from './components/EditProfile'
-import EditPost from './components/EditProfile'
+import EditPost from './components/EditPost'
 import Home from './components/Home'
 import { PostProvider } from './contexts/PostProvider';
 import { UserProvider } from './contexts/UserProvider';
