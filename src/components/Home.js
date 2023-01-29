@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 
@@ -8,10 +8,18 @@ function Home() {
 
     let { signOutUser } = useContext(UserContext);
 
-    // function isLoggedIn() {
-    //     let user = localStorage.getItem('currentUser')
-    //     setUser(user);
-    // }
+    function isLoggedIn() {
+        let user = localStorage.getItem('currentUser')
+        setUser(user);
+    }
+
+    useEffect(() => {
+        async function fetchData() {
+            await isLoggedIn();
+        }
+        isLoggedIn();
+        fetchData();
+    }, [signOutUser]);
 
     return (
         <>
@@ -23,15 +31,22 @@ function Home() {
 
 
                 <div className='nav-links'>
-                    <Link to={`/users/${user}`}>{user}</Link>
-                    {user ? <span> | </span> : ''}
+                    {user ? (<Link to={`/users/${user}`}>{user}</Link>) :
+                        (<Link to='/signup' className='nav-link'>Sign Up </Link>)}
 
-                    <Link to='/posts'>Feed</Link>
                     <span> | </span>
-                    <Link to='/signin' className='nav-link'>
-                        Sign In
-                    </Link><span> | </span>
+
                     {user ? (
+                        <Link onClick={() => { signOutUser(); }}>Sign Out</Link>
+                    ) : (<Link to='/signin' className='nav-link'>Sign In</Link>)}
+
+                    <span> | </span>
+
+                    <Link to='/posts' className='nav-link'>
+                        Feed
+                    </Link>
+
+                    {/* {user ? (
                         <Link onClick={() => {
                             signOutUser();
                         }}
@@ -50,7 +65,7 @@ function Home() {
                                 Feed
                             </Link>
                         </>
-                    )}
+                    )} */}
                 </div>
             </nav>
             <div className='outlet'>
