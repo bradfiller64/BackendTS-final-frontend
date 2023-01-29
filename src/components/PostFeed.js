@@ -35,63 +35,68 @@ function PostFeed() {
     }
 
     return (
-        <PostContext.Consumer>
-            {({ post }) => {
-                return (
-                    <>
-                        <div>
-                            <h1>Feed</h1>
-                            <br />
+        <>
+            <PostContext.Consumer>
+                {({ post }) => {
+                    return (
+                        <>
+                            <div>
+                                <h1>Feed</h1>
+                                <br />
 
-                            {user ? (
-                                <NewPost />
-                            ) : (
-                                // <h3>
-                                //     Please <Link to="/signin"> Login</Link>
-                                // </h3>
-                                <button onClick={() => {
-                                    navigate(`/signin`)
-                                }}>Login to Post
-                                </button>
-                            )
-                            }
+                                {user ? (
+                                    <NewPost />
+                                ) : (
+                                    // <h3>
+                                    //     Please <Link to="/signin"> Login</Link>
+                                    // </h3>
+                                    <button onClick={() => {
+                                        navigate(`/signin`)
+                                    }}>Login to Post
+                                    </button>
+                                )
+                                }
+                                <div>
+                                    {post.map((p) => {
+                                        return (
+                                            <div key={p.postId} className="post">
+                                                <Link to={`/users/${p.username}`}>{p.username}</Link>
 
+                                                <div className="message">
+                                                    <p>{p.message}</p>
+                                                </div>
 
-                            {post.map((p) => {
-                                return (
-                                    <div key={p.postId} className="post">
-                                        <Link to={`/users/${p.username}`}>{p.username}</Link>
+                                                <div className="date">
+                                                    <p>Posted: {p.createdAt}</p>
+                                                </div>
 
-                                        <div className="message">
-                                            <p>{p.message}</p>
-                                        </div>
+                                                {p.username === user ? (
+                                                    <div>
+                                                        <button classname="edit-btn" onClick={() => {
+                                                            navigate(`/users/edit/${user.username}`)
+                                                        }}>Edit
+                                                        </button>
 
-                                        <div className="date">
-                                            <p>Posted: {p.createdAt}</p>
-                                        </div>
+                                                        <button classname="del-btn" onClick={() => {
+                                                            handleDeletePost(`/posts/${p.postId}`)
+                                                        }}>Delete
+                                                        </button>
 
-                                        {p.username === user ? (
-                                            <div>
-                                                <button onClick={() => {
-                                                    navigate(`/users/edit/${username}`)
-                                                }}>Edit
-                                                </button>
-
-                                                <button onClick={() => {
-                                                    handleDeletePost(`/posts/${p.postId}`)
-                                                }}>Edit
-                                                </button>
-                                        )}
+                                                    </div>
+                                                ) : (
+                                                    ''
+                                                )}
                                             </div>
-                                        );
-                            }
-                            )}
-                                    </div>
-                    </>
-                        );
-            }}
-                    </PostContext.Consumer >
-                );
-            }
+                                        )
+                                    })}
+                                </div>
+                            </div>
 
+                        </>
+                    )
+                }}
+            </PostContext.Consumer >
+        </>
+    )
+}
 export default PostFeed;

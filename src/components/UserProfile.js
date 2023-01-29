@@ -85,12 +85,12 @@ const UserProfile = () => {
                                                         <p>Created At: {p.createdAt}</p>
                                                         {p.username === currentUser ? (
                                                             <>
-                                                                <button onClick={() => {
+                                                                <button classname="edit-btn" onClick={() => {
                                                                     navigate(`/posts/${p.postId}`)
                                                                 }}>Edit
                                                                 </button>
 
-                                                                <button onClick={() => {
+                                                                <button classname="del-btn" onClick={() => {
                                                                     handleDelete(p.postId);
                                                                 }}>Delete
                                                                 </button>
