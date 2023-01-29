@@ -6,6 +6,7 @@ import SignIn from './components/SignIn'
 import PostFeed from './components/PostFeed'
 import UserProfile from './components/UserProfile'
 import EditProfile from './components/EditProfile'
+import EditPost from './components/EditProfile'
 import Home from './components/Home'
 import { PostProvider } from './contexts/PostProvider';
 import { UserProvider } from './contexts/UserProvider';
@@ -25,7 +26,7 @@ function App() {
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/users/:username" element={<UserProfile />} />
                 <Route path="/users/edit/:username" element={<EditProfile />} />
-                <Route path="/posts/:id" element={<EditProfile />} />
+                <Route path="/posts/:id" element={<EditPost />} />
                 <Route path="/posts" element={<PostFeed />} />
               </Route>
               <Route path="*" element={<h1>Page Not Found</h1>} />
