@@ -1,1 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: black;
+    color: rgb(98, 255, 98);
+}
+
+.submit-btn {
+    background-color: rgb(115, 0, 161);
+    font-size: 15px;
+    border-radius: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+
+.edit-btn {
+    background-color: blue;
+    font-size: 15px;
+    border-radius: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+
+.delete-btn {
+    background-color: red;
+    font-size: 15px;
+    border-radius: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+
+.newPost {
+    display: flex;
+}
+
+.post {
+    border-style: solid;
+    border: 2px;
+    border-color: rgb(98, 255, 98);
+}

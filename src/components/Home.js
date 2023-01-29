@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Stack from 'react-bootstrap/Stack';
 import { Link, Outlet } from 'react-router-dom';
+import Logo from '../images/logo.png';
 
 
 function Home() {
@@ -12,12 +13,12 @@ function Home() {
             <Navbar bg='dark' variant='dark'>
                 <Container >
                     <Navbar.Brand href="/">
-                        {/* <img id="logo"
+                        <img id="logo"
                             alt='Lofi-Logo'
-                            style={{ width: 50, height: 50, borderRadius: '25px', boxShadow: '0px 0px 20px green' }}
+                            style={{ width: 50, height: 50, borderRadius: '25px' }}
                             src={Logo}
                             className="d-inline-block align-top"
-                        />{' '} */}
+                        />{' '}
                         <span style={{ color: 'rgb(98, 255, 98)' }}>MyFace</span>
                     </Navbar.Brand>
                 </Container>

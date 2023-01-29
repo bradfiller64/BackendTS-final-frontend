@@ -54,6 +54,8 @@ const UserProfile = () => {
 
             <h3>Joined: {user.createdAt}</h3>
 
+            <br />
+
             {user.username === currentUser ? (
                 <>
                     {/* <Link to={`/users/edit/${currentUser}`}>Edit Info</Link> */}
@@ -83,6 +85,7 @@ const UserProfile = () => {
                                                     <p>{p.post}</p>
                                                     <div>
                                                         <p>Created At: {p.createdAt}</p>
+
                                                         {p.username === currentUser ? (
                                                             <>
                                                                 <button classname="edit-btn" onClick={() => {

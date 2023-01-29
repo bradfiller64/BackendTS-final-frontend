@@ -47,20 +47,18 @@ function PostFeed() {
                                 {user ? (
                                     <NewPost />
                                 ) : (
-                                    // <h3>
-                                    //     Please <Link to="/signin"> Login</Link>
-                                    // </h3>
-                                    <button onClick={() => {
-                                        navigate(`/signin`)
-                                    }}>Login to Post
-                                    </button>
+                                    <h3>
+                                        <Link to="/signin">Login</Link> to post
+                                    </h3>
                                 )
+
                                 }
                                 <div>
+                                    <br />
                                     {post.map((p) => {
                                         return (
                                             <div key={p.postId} className="post">
-                                                <Link to={`/users/${p.username}`}>{p.username}</Link>
+                                                <Link className="userfeed" to={`/users/${p.username}`}>{p.username}</Link>
 
                                                 <div className="message">
                                                     <p>{p.message}</p>

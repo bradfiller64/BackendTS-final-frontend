@@ -40,7 +40,7 @@ export const PostProvider = (props) => {
 
     function editPost(post) {
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('postToken')}`
+            Authorization: `Bearer ${localStorage.getItem('userToken')}`
         };
 
         return axios.put(baseUrl + post._id, post, { headers: myHeaders })
@@ -53,7 +53,7 @@ export const PostProvider = (props) => {
 
     function deletePost(id) {
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('postToken')}`
+            Authorization: `Bearer ${localStorage.getItem('userToken')}`
         };
 
         return axios.delete(baseUrl + id, { headers: myHeaders }).then(response => {

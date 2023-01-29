@@ -94,7 +94,7 @@ const EditProfile = () => {
             />
             <br />
             <br />
-            <button>Update</button>
+            <button className="submit-btn">Update</button>
         </form>
     )
 }

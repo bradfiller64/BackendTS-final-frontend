@@ -51,7 +51,7 @@ const EditPost = () => {
                 onChange={handleChange} />
 
             <br></br><br></br>
-            <button>Update</button>
+            <button className="submit-btn">Update</button>
         </form>
     )
 }

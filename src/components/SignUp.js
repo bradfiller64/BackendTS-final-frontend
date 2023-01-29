@@ -98,7 +98,7 @@ const SignUp = () => {
             />
             <br />
             <br />
-            <button>Sign Up</button>
+            <button className="submit-btn">Sign Up</button>
         </form>
     )
 }
